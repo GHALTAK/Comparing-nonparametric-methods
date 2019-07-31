@@ -1,0 +1,12 @@
+msesum<-function(x){
+  apply(x,2,sum)
+}
+library(tidyverse)
+library(pander)
+library(kableExtra)
+library(knitr)
+printmse<-function(data_ms,m,cap,function_name=c("linchirp","mishmash","heavisine","doppler"),estimator_name=c("First GEN","Second GEN","Kernel smoother","Spline"),n=4){
+  df<-map_dfc(c(1:n),function(i)map(data_ms[[i]][m],msesum)%>%unlist(use.names=TRUE)%>%tibble())%>%setNames(function_name)%>%add_column(estimators=estimator_name,.before = 1)#make the table
+  emphasize.strong.cells(cbind( apply(df[,2:(n+1)], 2, which.min),2:(n+1)))
+  pander::pander(df,caption=cap, style = "rmarkdown")
+}
