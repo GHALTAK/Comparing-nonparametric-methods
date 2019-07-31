@@ -1,0 +1,147 @@
+sim_npsiguniffunc <-function(f,distribution,n=256,m=50,r){
+  # Number of (X, Y) pairs
+  library(tidyverse)
+  library(CNLTreg)
+  library(wavethresh)
+  
+  n_t = n # number of points on t grid
+  t = seq(from = 0, to = 1 - 1/n_t, by = 1/n_t)
+  # Number of simulations
+  #approx
+  x=matrix(rep( 0, len=n*m), nrow = n)
+  y<-matrix(rep( 0, len=n*m), nrow = n)
+  ft<-f(t)
+  t_2 = seq(from = 1/(2 * n), by = 1/n, length = n)
+  ft2 = f(t_2)
+  #approx
+  x=matrix( rep( 0, len=n*m), nrow = n)
+  y=matrix( rep( 0, len=n*m), nrow = n)
+  ft=f(t)
+  noise<-rnorm(n,mean=0,sd=sqrt(var(ft))/r)
+  estwr=matrix( rep( 0, len=n*m), nrow = n)
+  est1<-matrix( rep( 0, len=n*m), nrow = n)
+  est2<-matrix( rep( 0, len=n*m), nrow = n)
+  est3<-matrix( rep( 0, len=n*m), nrow = n)
+  est4<-matrix( rep( 0, len=n*m), nrow = n)
+  gridt1<-matrix( rep( 0, len=n*m), nrow = n)
+  gridy1<-matrix( rep( 0, len=n*m), nrow = n)
+  gridt2<-matrix( rep( 0, len=n*m), nrow = n)
+  gridy2<-matrix( rep( 0, len=n*m), nrow = n)
+  gridt3<-matrix( rep( 0, len=n*m), nrow = n)
+  gridy3<-matrix( rep( 0, len=n*m), nrow = n)
+  gridt4<-matrix( rep( 0, len=n*m), nrow = n)
+  gridy4<-matrix( rep( 0, len=n*m), nrow = n)
+  
+  mu=matrix( rep( 0, len=n*3), nrow = n)
+  for (i in 1:m){
+    x[,i]=sort(distribution)
+    noise<-rnorm(n,mean=0,sd=sqrt(var(ft))/r)
+    #generating the y argument
+    y[,i]=f(x[,i])+noise[i] 
+    #wavelet first generation
+    estwd=wavethresh::wd(y[,i])
+    estwr[,i]=t(wavethresh::wr(wavethresh::threshold( estwd,
+                                                      by.level=TRUE,
+                                                      policy="universal")))
+    #second generation
+    est1[,i]<-CNLTreg:: cnlt.reg(x[,i],y[,i],P=2,
+                                 LocalPred=AdaptPred,
+                                 neighbours=1,returnall=FALSE)
+    #kernelsmoother
+    npbwrh =np:: npregbw(xdat = x[,i],
+                         ydat = y[,i], regtype = "lc",
+                         bwmethod = "cv.aic")
+    nprh1 = np:: npreg(npbwrh)
+    est3[,i]=fitted(nprh1)
+    #Spline-
+    bk <- mgcv:: gam(y[,i]~ s(x[,i],bs="ps",k=60),
+                 family=gaussian)
+    est4[,i]<-bk$fitted.values
+    
+    gridapprox1<-makegrid(x[,i],est1[,i])
+    gridt1[,i]<-gridapprox1$gridt
+    gridy1[,i]<-gridapprox1$gridy
+    gridapprox3<-makegrid(x[,i],est3[,i])
+    gridt3[,i]<-gridapprox3$gridt
+    gridy3[,i]<-gridapprox3$gridy
+    gridapprox4<-makegrid(x[,i],est4[,i])
+    gridt4[,i]<-gridapprox4$gridt
+    gridy4[,i]<-gridapprox4$gridy
+  }
+  
+  #mse of first generation
+  
+  bias_firstgen=rowMeans(estwr)-ft
+  varest_firstgen=apply(estwr,1,var)
+  mse_firstgen=varest_firstgen+bias_firstgen^2
+  mae_firstgen=rowMeans(abs(estwr[,1:m]-ft2))
+  
+  
+  
+  bias_secondgenp2= rowMeans(gridy1) - ft2
+  varest_secondgenp2=apply(est1,1,var)
+  mse_secondgenp2=varest_secondgenp2+bias_secondgenp2^2
+  mae_secondgenp2=rowMeans(abs(gridy1[,1:m]-ft2))
+  
+  bias_np= rowMeans(gridy3) - ft2
+  varest_np=apply(est3,1,var)
+  mse_np=varest_np+bias_np^2
+  mae_np=rowMeans(abs(gridy3[,1:m]-ft2))
+  
+  bias_spline= rowMeans(gridy4) - ft2
+  varest_spline=apply(est4,1,var)
+  mse_spline=varest_spline+bias_spline^2
+  mae_spline=rowMeans(abs(gridy4[,1:m]-ft2))
+  
+  
+  vareste<-cbind(varest_firstgen,varest_secondgenp2,
+                 varest_np,varest_spline)
+  biase<-cbind(bias_firstgen,bias_secondgenp2,
+               bias_np,bias_spline)
+  msee<-cbind(mse_firstgen,mse_secondgenp2,
+              mse_np,mse_spline)
+  maee<-cbind(mae_firstgen,mae_secondgenp2,
+              mae_np,mae_spline)
+  
+  return_list<-list(vareste,biase,msee,maee)
+  return(return_list)
+}
+
+
+
+
+###### demonstration
+
+
+
+
+do_run = FALSE
+
+if(do_run) {
+  
+  
+  
+  linear<-function(x){
+    x
+  }
+  qua<-function(x){
+    x^2
+  }
+  qub<-function(x){
+    x^3
+  }
+  
+  
+  funlist<-list(linear,qua,qub,sin,cos,exp)
+  library(furrr)
+  plan(multiprocess)
+  d<-future_map(funlist,function(x) sim_npsiguniffunc(f=x,distribution =runif(256,0,1),n=256,m=50,5))
+  
+  save.image("d.RData")
+  
+} else {
+  
+  load("d.RData")
+  
+}
+
