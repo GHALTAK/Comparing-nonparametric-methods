@@ -1,0 +1,9 @@
+betarec<-function(n = 1e5,theta = 0.4,a = 15, b = 3){
+  library(zipfR)
+  U=sort(runif(n,0,1))
+  
+  mix = sample(paste0("component ", 1:2),
+               size = n, replace = TRUE, prob = c(theta, 1 - theta))
+  
+  X = ifelse(mix == "component 1", Rbeta.inv(U, a , b ), U)
+}
