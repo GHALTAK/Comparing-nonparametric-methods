@@ -1,0 +1,61 @@
+betarec<-function(n = 1e5,theta = 0.4,a = 15, b = 3){
+  library(zipfR)
+  U=sort(runif(n,0,1))
+  
+  mix = sample(paste0("component ", 1:2),
+               size = n, replace = TRUE, prob = c(theta, 1 - theta))
+  
+  X = ifelse(mix == "component 1", Rbeta.inv(U, a , b ), U)
+}
+library(tidyverse)
+x1<-sort(betarec(256))
+y<-make.signal2("doppler",x1)
+noise<-rnorm(256,mean=0,sd=sqrt(var(y))/5)
+y<-y+noise 
+est1<-CNLTreg::cnlt.reg(x1,y,P=2,
+                    LocalPred=AdaptPred,neighbours=1,returnall=FALSE)
+estwd <-wavethresh:: wd(y)
+estwr <-wavethresh:: wr(wavethresh::threshold(estwd, by.level=TRUE, policy="universal")) 
+ 
+npbwrh <- np::npregbw(y ~ x1, regtype = "lc", bwmethod = "cv.aic")
+nprh1 <- np::npreg(npbwrh)
+
+
+bk <-mgcv:: gam(y~ s(x1,bs="ps",k=60),family=gaussian)
+bk<-bk$fitted.values
+
+estfr<-cbind.data.frame(x1,y,
+                        y1=t(est1),
+                        y2=estwr,
+                        y3=fitted(nprh1),
+                        y5=bk)
+     
+     
+estfr %>% gather(key="t",value="para",y1,y2,y3,y5)%>% ggplot(aes(x=x1,y=para,color=t,group=t))+geom_line()+
+theme_light()+theme(axis.title.x=element_blank(),axis.title.y=element_blank())
+
+                        
+                        
+
+pr1<-ggplot(estfr,aes(x= x1,y= y))+
+  geom_point(color="firebrick3")+
+  geom_line(aes(x=x1,y=y1),color="gray4")+
+  ggtitle("Second gen Wavelet")+theme_light()+ theme(axis.title.x=element_blank(),axis.title.y=element_blank())
+  
+
+pr2<-ggplot(estfr,aes(x= x1,y=y))+
+  geom_point(color="firebrick3")+
+  geom_line(aes(x=x1,y=y2),color="gray4")+
+  ggtitle("First Wavelet")+theme_light()+ theme(axis.title.x=element_blank(),axis.title.y=element_blank())
+
+pr3<-ggplot(estfr,aes(x= x1,y= y))+
+  geom_point(color="firebrick3")+
+  geom_line(aes(x=x1,y=y3),color="gray4")+ggtitle("Kernel smoother")+theme_light()+ theme(axis.title.x=element_blank(),axis.title.y=element_blank()) 
+
+pr4<-ggplot(estfr,aes(x= x1,y= y))+
+  geom_point(color="firebrick3")+
+ geom_line(aes(x=x1,y=y5),color="gray4")+
+  ggtitle("Spline")+theme_light()+ theme(axis.title.x=element_blank(),axis.title.y=element_blank())
+
+cowplot::plot_grid(pr1,pr2,pr3,pr4,labels = c("A","B","C","D"))
+```
