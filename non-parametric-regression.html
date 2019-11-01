@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Non-parametric regression | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models</title>
+  <meta name="description" content="Chapter 2 Non-parametric regression | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Non-parametric regression | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Non-parametric regression | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  
+  
+  
+
+<meta name="author" content="Mohammadhossein Aberoumand" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="methodology.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html"><i class="fa fa-check"></i><b>2</b> Non-parametric regression</a><ul>
+<li class="chapter" data-level="2.1" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#kernel-smoothing"><i class="fa fa-check"></i><b>2.1</b> Kernel Smoothing</a></li>
+<li class="chapter" data-level="2.2" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#penalized-spline"><i class="fa fa-check"></i><b>2.2</b> Penalized spline</a></li>
+<li class="chapter" data-level="2.3" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#first-generation-wavelets"><i class="fa fa-check"></i><b>2.3</b> First generation wavelets</a></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#second-generation-wavelets"><i class="fa fa-check"></i><b>2.4</b> Second generation Wavelets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#simulation"><i class="fa fa-check"></i><b>3.1</b> Simulation</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#calculating-mse"><i class="fa fa-check"></i><b>3.2</b> Calculating MSE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a><ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#visual-pattern"><i class="fa fa-check"></i><b>4.1</b> Visual Pattern</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#basic-functions"><i class="fa fa-check"></i><b>4.2</b> Basic functions</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#signals"><i class="fa fa-check"></i><b>4.3</b> Signals</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="results.html"><a href="results.html#uniform-grid"><i class="fa fa-check"></i><b>4.3.1</b> Uniform grid</a></li>
+<li class="chapter" data-level="4.3.2" data-path="results.html"><a href="results.html#left-skewed-grid"><i class="fa fa-check"></i><b>4.3.2</b> Left skewed grid</a></li>
+<li class="chapter" data-level="4.3.3" data-path="results.html"><a href="results.html#right-skewed-grid"><i class="fa fa-check"></i><b>4.3.3</b> Right skewed grid</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>A</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="non-parametric-regression" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Non-parametric regression</h1>
+<p>In this chapter we will discuss different ideas and methods for nonparametric regression <span class="citation">(Martinez &amp; Martinez, 2007)</span> but before explaining the nonparametric methods we will recall the linear regression model this will help us have a better understanding of different approaches to this problem. A refinement of the previous linear regression model that could move in nonlinear patterns could be a ploynomial regression:</p>
+<p><span class="math display" id="eq:classiceq">\[\begin{equation}
+Y_{i}=\beta_{0}+\beta_{1}X+\beta_{2}X^{2}+...+\beta_{p}X^{p}+\epsilon, \quad p \in\mathbb{N}
+ \tag{2.1}
+\end{equation}\]</span></p>
+<p>we have to note that besides <span class="math inline">\(\beta\)</span> we have used polynomial term such as <span class="math inline">\(X^2\)</span> the model is considered to be <em>linear</em> with respect to coefficients <span class="math inline">\(\beta_{i}\)</span>. This model is considered to be <em>parametric</em> because we assume a certain model for the existing relationship between predictors and the response and estimate the coefficients. In general, parametric model have certain assumptions and are considered to be less flexible. We usually fit these models by estimating the parameter using various estimation methods. In case of linear regression, the model can be written in matrix format <span class="math inline">\(Y=X\beta+\epsilon\)</span> and we assume <span class="math inline">\(E(\epsilon)=0\)</span> and <span class="math inline">\(V(\epsilon)=\sigma^{2}I\)</span>. The estimate for the vector of parameter can be driven by solving the following equation: <span class="math inline">\(\beta=(X^{T}X)^{-1}X^{T}Y\)</span>.</p>
+<p>In nonparametric case we do not assume a parametric format for our model and we will try to fit a more flexible model that could be expressed in the following format:</p>
+<p><span class="math display">\[Y= f(X_{i})+\epsilon\]</span></p>
+<p>Generally speaking, function <span class="math inline">\(f\)</span> in this equation is consider to be smooth and bounded function that allow nonlinear relation between the predictors. In this project we focus on the cases where there is one response and one predictor variable. In this problem we are after the functions that can minimize the error term which is essentially the difference between the true value of the function and the estimated values. This has been given in the following expression:
+<span class="math display">\[E[(Y_i -\hat f(X_{i}))^{2}]\]</span></p>
+<p>where <span class="math inline">\(\hat f(X_{i})\)</span> is the estimate of the function <span class="math inline">\(f\)</span> at <span class="math inline">\(i-th\)</span> position . In the following we will dicuss the <em>kernel smoothing</em> method:</p>
+<div id="kernel-smoothing" class="section level2">
+<h2><span class="header-section-number">2.1</span> Kernel Smoothing</h2>
+<p>Kernel smoothing estimator locally estimates regression which means it fits an estimate <span class="math inline">\(\hat y_0\)</span> for each point <span class="math inline">\(x_0\)</span>. This estimate is a n-th degree polynomial which is estimated using weighted least square of the point in neighborhood of the point <span class="math inline">\(x_0\)</span>. In order to get a better estimate, closer points will be associated with larger weight and further points will be associated will smaller weights.
+This will be achieved by using a kernel function and usually has a smoothing parameter which controls the bandwidth of the neighborhood; moreover, it influences the weights that points would take. The polynomial at each point can be express by the following equation:
+<span class="math display" id="eq:poly">\[\begin{equation}
+\hat Y=\beta_0+\beta_1(X_i-x)+\dots+\beta_d(X_i-x)^d
+\tag{2.2}
+\end{equation}\]</span></p>
+<p>Now we associate each point with the weight obtain from the our kernel function</p>
+<p><span class="math display" id="eq:kernel">\[\begin{equation}
+K_h(X_i-x)=\frac{1}{h}K(\frac{X_i-x}{h})
+\tag{2.3}
+\end{equation}\]</span></p>
+<p>where in <a href="non-parametric-regression.html#eq:kernel">(2.3)</a>, h is the bandwidth. If the bandwidth is very small the curve become non smooth and wiggly because it only depends on the point in a very small neighborhood of the point this may result in over fitting. In contrast, If the h is chosen too large the estimated curve will become smooth and the bias of the model will be large. We are after <span class="math inline">\(\hat\beta_i\)</span> which minimize the following equation:
+<span class="math display">\[\Sigma^n_{i=1}K_h(X_i-x)(Y_i-\beta_0-\beta_1(X_i-x)-\dots-\beta_d(X_i-x)^d)^2\]</span>
+Now if we put our terms in a matrix format we can have the following:
+<span class="math display">\[X_x=
+\
+ \begin{pmatrix}
+  1 &amp; X_1-x &amp; \dots&amp; (X_1-x)^d \\
+  \vdots &amp; \vdots &amp;\ddots &amp; \vdots \\
+  1 &amp; X_n-x &amp; \dots &amp; (X_n-x)^d
+ \end{pmatrix}
+\
+\]</span>
+and weights can be put in a diagonal matrix as following:</p>
+<p><span class="math display">\[W_x=\
+ \begin{pmatrix}
+  K_h(X_i-x) &amp; 0 &amp; \dots&amp; 0 \\
+  \vdots &amp; \vdots &amp;\ddots &amp; \vdots \\
+  0 &amp; 0 &amp; \dots &amp; K_h(X_n-x)
+ \end{pmatrix}
+\
+\]</span>
+Now the estimates of the <span class="math inline">\(\hat \beta=(\hat \beta_0,\hat \beta_1,\hat \beta_2,\dots,\hat \beta_d)\)</span> can be obtain using the following equation:
+<span class="math display">\[\hat\beta=(X_x^TW_xX_x)^{-1}X_x^TW_xY\]</span>
+We know that the estimator <span class="math inline">\(\hat y=f(x)\)</span> is the intercept coefficient <span class="math inline">\(\beta_0\)</span> of fitted estimate. We can calculate this <span class="math inline">\(\hat f\)</span> by simply multiple the estimated <span class="math inline">\(\hat\beta\)</span>
+by <span class="math inline">\(e_1^T=(1,\underbrace{0,\dots,0}_\text{$(d-1)$-times})\)</span> which is the first element of the basis of <span class="math inline">\(d+1\)</span> dimensional vector space where <span class="math inline">\(d\)</span> is degree of the polynomial in <a href="non-parametric-regression.html#eq:poly">(2.2)</a> . Therefore we can have the following:</p>
+<p><span class="math display">\[\hat f(x)= e_1^T(X_x^TW_xX_x)^{-1}X_x^TW_xY\]</span></p>
+<p>More information on this topic can be found in <span class="citation">(Martinez &amp; Martinez, 2007)</span>.</p>
+</div>
+<div id="penalized-spline" class="section level2">
+<h2><span class="header-section-number">2.2</span> Penalized spline</h2>
+<p>In this family of estimators instead of using a single polynomial for whole the data we can use different polynomials for different parts of the data. For example:</p>
+<p><span class="math display">\[   
+Y_i = 
+     \begin{cases}
+     \beta_{01}+\beta_{11}x_i+\beta_{21}x_i^2+\varepsilon_i &amp; \quad\text{if}\quad x&lt;\phi  \\
+       \beta_{02}+\beta_{12}x_i+\beta_{22}x_i^2+\varepsilon_i &amp; \quad\text{if}\quad x\geq\phi \\
+     \end{cases}
+\]</span></p>
+<p>where <span class="math inline">\(\phi\)</span> is called knot. On the boundaries between the regions, polynomials should be continuous but it is more common to use polynomial with available derivatives up to order two. In general, a linear spline with knots <span class="math inline">\(\phi_k\)</span> <span class="math inline">\(k=1,\dots,k\)</span> is a piece-wise polynomial continuous at each knot and this means that the set of all linear spline with fixed knots is a vector space. Therefore, a basis can be chosen for it. In the following we will introduce two common basis for this vector space. A cubic spline is a piece-wise cubic polynomial with continuous derivatives up to order 2 at each knot, we can write the equation as the following
+<span class="math display">\[y=\sum^{K+4}_{m=1}\beta_mh_m(x)+\epsilon\]</span>
+where <span class="math display">\[h_k(x)=x^{k-1},\quad k=1,\dots,4\]</span> and <span class="math display">\[h_{k+4}=(x-\phi_k)^3_+,\quad k=1,\dots,K\]</span>.
+where <span class="math inline">\((x-\phi_k)_+=x-\phi_k\)</span> if <span class="math inline">\(x&gt;\phi_k\)</span> and <span class="math inline">\((x-\phi)_+=0\)</span> otherwise
+In general, <em>order-M</em> spline is defined as below</p>
+<p><span class="math display">\[h_k(x)=x^{k-1},\quad k=1,\dots,M.\]</span>
+<span class="math display">\[h_{k+M}(x)=(x-\phi_k)^{M-1}_+,\dots k=1,\dots,K.\]</span></p>
+<p><span class="math display">\[   
+Y_i = 
+     \begin{cases}
+     (x-\phi_k)^{M-1}_+=     (x-\phi_k)^{M-1} &amp; \quad\text{if}\quad x&gt;\phi_k  \\
+     (x-\phi_k)^{M-1}_+=0   &amp; \quad \text{otherwise}\\
+     \end{cases}
+\]</span></p>
+<p>However, in practice cubic spline is the highest order we use. Another class of basis that has been frequently used is B-splines<span class="citation">(Burden, Faires, &amp; Reynolds, 2001)</span>, they were introduced in 1946 by I.J.Schoenberg <span class="citation">(Schoenberg, 1946)</span> and in 1972, Carl DE Boor <span class="citation">(De Boor, 1972)</span> described recursion formula for evaluation with high computational stability. Now let <span class="math inline">\(\phi_0,\phi_1,\phi_2,\dots,\phi_k\)</span> be the knots and sorted in a non-decreasing order. The element of the basis will be the following:
+<span class="math display">\[B_{i,n}(x)= \begin{cases}
+ 1 &amp; \quad\text{if}\quad \phi_i\leq x \leq \phi_{i+1}  \\
+      0 &amp; \quad\text{otherwise} \\
+     \end{cases}\]</span>
+where <span class="math inline">\(i=1,\dots,(K+2M-1)\)</span>
+The term <span class="math inline">\(B_{i,m}\)</span> can be calculated by:
+<span class="math display">\[B_{i,m}=\frac{x-\phi_i}{\phi_{i+m-1}-\phi_i}B_{i,m-1}+\frac{\phi_{i+m}-x}{\phi_{i+m}-\phi_{i+1}}B_{i+1,m-1}(x)\]</span> where <span class="math inline">\(i=1,\dots,K+2M-m\)</span>
+. If the number of knots is large overfitting may occur so to avoid over fitting penalized spline were introduced. The penalized spline is a function which minimizes the following equation:
+<span class="math display" id="eq:RSS">\[\begin{equation}
+RSS(f,\lambda)=\Sigma^{N}_{i=1}(y_i-f(x_i))^2+\lambda\int(f&#39;&#39;(t))^2dt
+\tag{2.4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\lambda\)</span> is fixed and called smoothing parameter and <span class="math inline">\(RSS\)</span> is called penalized residual sum of squares. The first term is the usual term for measuring the goodness of fit and the second term penalizes curvature of the function <span class="math inline">\(f\)</span>. A larger <span class="math inline">\(\lambda\)</span> will result in a less flexible and smoother curve. In contrast, a smaller <span class="math inline">\(\lambda\)</span> will result in more a flexible model and more wiggly curve.</p>
+</div>
+<div id="first-generation-wavelets" class="section level2">
+<h2><span class="header-section-number">2.3</span> First generation wavelets</h2>
+<p>Wavelets and Wavelet transforms were first appeared in the mathematical literature around 30 years ago <span class="citation">(Grossmann &amp; Morlet, 1984)</span>. Continuous wavelet transform was created by modifying the windowed Fourier transform which has been presented below:</p>
+<p><span class="math display">\[F_h[f](t,\omega)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}f(y)\overline{h(y-t)}e^{-i\omega y}dy\]</span></p>
+<p>where <span class="math inline">\(f\in L_2(\mathbb{R})\)</span> is a time-continuous signal and <span class="math inline">\(h\in L_2(\mathbb{R})\)</span>. We merge The window function <span class="math inline">\(h\)</span> and the Fourier transform component <span class="math inline">\(e^{i \omega y}\)</span> into one window function which we call <span class="math inline">\(\psi\)</span> and has the property of being scale-able<span class="citation">(Jansen &amp; Oonincx, 2005)</span>,<span class="citation">(Apostol, 1974)</span>. After this modification we will end up with the continuous wavelet transform:
+<span class="math display">\[W_\psi[f](a,b)=\frac{1}{\sqrt{a}}\int_{\mathbb{R}}f(t)\overline{\psi(\frac{t-b}{a})}dt\]</span>
+which is a wavelet function <span class="math inline">\(\psi \in L_2(\mathbb{R})\)</span>, <span class="math inline">\(+\infty&gt;a&gt;0\)</span> is called the <em>scaling</em> parameter and <span class="math inline">\(+\infty&gt;b&gt;0\)</span> is <em>localization</em> parameter and the wavelet transform continuously depends on them <span class="citation">(Jansen &amp; Oonincx, 2005)</span>. These properties correspond to the two desirable features of the wavelets. <em>Localization</em> mean that the discontinuities in the regression function <span class="math inline">\(f(x)\)</span> will only effect the <span class="math inline">\(\psi(x)\)</span> near it. This will give us the ability to detect localized pattern of the data. The <em>scaling</em> feature means the the domain of each <span class="math inline">\(\psi(x)\)</span> can be scaled separately. This means that we could ‘zoom in’ and analyze the regression function at a set of desired scales.</p>
+<p>We can discretize the wavelet transform by restricting our domain to a discrete transform. We also replace the double integral by double summation; a common choice for the discrete subset is a dyadic lattice. The use a special case of basis of <span class="math inline">\(L_2(\mathbb{R})\)</span> for transformation which commonly has the following form <span class="math display">\[\{\psi(2^jt-k)|j,k\in\mathbb{Z}\}\]</span>
+Therefore, the reconstruction of the signal would be of the following form and should satisfy the following conditions:
+<span class="math display">\[m||\alpha||^2_2 \leq ||f||^2_2 \leq M||\alpha||^2_2 \]</span>
+<span class="math display">\[f(t)=\sum_{j=-\infty}^{\infty}\sum_{k=-\infty}^{\infty}\alpha_{j,k}\psi_{j,k}(t)\]</span>
+where <span class="math inline">\(\alpha\)</span> is a double indexed sequence that satisfies the equation above and <span class="math inline">\(\psi_{j,k}(t)=2^{j/2}\psi(2^{j}t-k)\)</span>
+and <span class="math inline">\(+\infty&gt;m,M&gt;0\)</span> this guarantees the <span class="math inline">\(f\)</span> to be bounded. It can be shown that the computational complexity of this method is <span class="math inline">\(\mathcal{O}(N)\)</span> compared to the widely used fast Fourier transform which is <span class="math inline">\(\mathcal{O}(N\log N)\)</span> which adds the benefits of faster convergance<span class="citation">(Jansen &amp; Oonincx, 2005)</span>. In estimation we apply the wavelet transform to the data and get the wavelet coefficient. The coefficient that are below the error threshold will be dropped. Then the reverse transformation is applied to get the fitted value.<br />
+The are some problems surrounding this issue. First, in practice the number of observations should be a power of two <span class="math inline">\(n=2^l\)</span> for some <span class="math inline">\(l\in \mathbb{N}\)</span>. However this is not the major issue and it can be tackled rather easily. The major problem is that the observed data has to be on a regular spaced grid such as <span class="math inline">\(t_i=\frac{i}{n}\)</span>. One of the approaches to solve this problem is to interpolate the data to a regularly spaced grid which has benn incorporated into the R package <em>Wavethresh</em><span class="citation">(Nason, 2016)</span>. This may seem a good idea but in two dimensional cases it has proved to be computationally intensive and not useful in practice<span class="citation">(Herrick, 2000)</span>. This has encouraged scientists to develop new techniques called “second-generation Wavelets” to overcome this problem. In the next section we will discussed this in more detail.</p>
+</div>
+<div id="second-generation-wavelets" class="section level2">
+<h2><span class="header-section-number">2.4</span> Second generation Wavelets</h2>
+<p>In previous section we introduced the first generation wavelet method and we listed some prominent features of it. We talked about the <em>localization</em> and <em>scalability</em> of the wavelets and its relatively fast computational efficiency. This qualities give this method a remarkable place among the regression estimation methods. We also noted that the main disadvantage of this method is its reliance on Fourier transformation which make it restricted to an equally-spaced grid. While there are solution such as interpolating data on to an equally spaced grid and performing the wavelet transformation before interpolating it back to actual grid, this solutions have been proven to be computationally expensive.</p>
+<p>Consequently a new approach called <em>second generation wavelets</em><span class="citation">(Sweldens, 1998)</span> has been developed in past two decades which not only does not rely on Fourier transforms for computation but also contains all the good properties of the wavelet method. The idea behind this new method is called <em>Lifting schemes</em><span class="citation">(Sweldens, 1996)</span>.</p>
+<p>We wish to construct the lifting scheme and briefly explain how it works. Suppose <span class="math inline">\(\lambda_{0,k}=f(k)\)</span> for <span class="math inline">\(k\in\mathbb{Z}\)</span>. We like to be able to extract the information in the data with smaller sub-samples but with larger distance between elements. In other words, our aim is to capture the information in fewer coefficients; However, this may not be achievable and in that scenario an approximation with acceptable margins of error is plausible. We reduce the number of coefficients by dividing them into two separate sequences of even and odd samples using the definition below;
+<span class="math display">\[\lambda_{-1,k}:= \lambda_{0,2k} \quad \text{for}\quad k \in\mathbb{Z}\]</span>
+we need to record the information that will be lost from <span class="math inline">\(\lambda_{0,k}\)</span> to <span class="math inline">\(\lambda_{-1,k}\)</span> in this procedure. This difference will be recorded in <span class="math inline">\(\gamma_{-1,k}\)</span>
+and we call them the wavelet coefficients. These coefficient will be calculated by averaging two adjacent even elements and subtracting from the odd sample which can be seen in the following:
+<span class="math display">\[\gamma_{-1,k}=\lambda_{0,2k+1}-\frac{\lambda_{-1,k}+\lambda_{-1,k+1}}{2}\]</span>
+and like the first generation wavelet methods the coefficients that are below the threshold we will ignored. In other words the wavelet coefficient are measuring the magnitude in which the function is different from being linear.This method does not depend on the actual distance between the point of the grid so it is not restricted to a dyadic or equally spaced grid.
+The package that has been used in this project is <code>CNLTreg</code><span class="citation">(Nunes &amp; Knight, 2018)</span> which has been written by the author of the article<span class="citation">(Hamilton et al., 2018)</span>. In this article they have presented a new Complex-value approach to second generation wavelet, the lifting scheme has been constructed in two branches. One the real-value branch and imaginary branch.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methodology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

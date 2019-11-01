@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Methodology | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models</title>
+  <meta name="description" content="Chapter 3 Methodology | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Methodology | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Methodology | Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models" />
+  
+  
+  
+
+<meta name="author" content="Mohammadhossein Aberoumand" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="non-parametric-regression.html">
+<link rel="next" href="results.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html"><i class="fa fa-check"></i><b>2</b> Non-parametric regression</a><ul>
+<li class="chapter" data-level="2.1" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#kernel-smoothing"><i class="fa fa-check"></i><b>2.1</b> Kernel Smoothing</a></li>
+<li class="chapter" data-level="2.2" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#penalized-spline"><i class="fa fa-check"></i><b>2.2</b> Penalized spline</a></li>
+<li class="chapter" data-level="2.3" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#first-generation-wavelets"><i class="fa fa-check"></i><b>2.3</b> First generation wavelets</a></li>
+<li class="chapter" data-level="2.4" data-path="non-parametric-regression.html"><a href="non-parametric-regression.html#second-generation-wavelets"><i class="fa fa-check"></i><b>2.4</b> Second generation Wavelets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="methodology.html"><a href="methodology.html#simulation"><i class="fa fa-check"></i><b>3.1</b> Simulation</a></li>
+<li class="chapter" data-level="3.2" data-path="methodology.html"><a href="methodology.html#calculating-mse"><i class="fa fa-check"></i><b>3.2</b> Calculating MSE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a><ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#visual-pattern"><i class="fa fa-check"></i><b>4.1</b> Visual Pattern</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#basic-functions"><i class="fa fa-check"></i><b>4.2</b> Basic functions</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#signals"><i class="fa fa-check"></i><b>4.3</b> Signals</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="results.html"><a href="results.html#uniform-grid"><i class="fa fa-check"></i><b>4.3.1</b> Uniform grid</a></li>
+<li class="chapter" data-level="4.3.2" data-path="results.html"><a href="results.html#left-skewed-grid"><i class="fa fa-check"></i><b>4.3.2</b> Left skewed grid</a></li>
+<li class="chapter" data-level="4.3.3" data-path="results.html"><a href="results.html#right-skewed-grid"><i class="fa fa-check"></i><b>4.3.3</b> Right skewed grid</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>A</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Title: Comparing numerical performance of second generation wavelets and the nonparametric estimators in random design regression models</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="methodology" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Methodology</h1>
+<div id="simulation" class="section level2">
+<h2><span class="header-section-number">3.1</span> Simulation</h2>
+<p>In this project we want to test our estimators on a signal whose function has been constructed on a non equally-spaced grid. The ultimate goal is to calculate the mean square error and mean absolute error associated which each estimator. This will give us a relative measure to compare the estimators and their strengths and weaknesses plus the possible conditions that will force them to fail to address the variation in the data correctly.
+To generate such data first we will obtain a random sample of size n from a probability distribution. First, we will use <span class="math inline">\(X \sim \text{unif}(0,1)\)</span> which will provide us with a grid which is not skewed to either left or right. Then we will plug in this data in a function such as Quadratic function, Cubic function, Sinusoidal function, Cosinusoid function to derive the <span class="math inline">\(Ys\)</span>.
+<span class="math display">\[
+f_1(x)=x,\quad \text{Linear}\]</span>
+<span class="math display">\[f_2(x)=x^2,\quad \text{Quadratic}\]</span>
+<span class="math display">\[f_3(x)=x^3,\quad \text{Cubic}\]</span>
+<span class="math display">\[f_4(x)=sin(x),\quad \text{Sinusoid}\]</span>
+<span class="math display">\[f_5(x)=cos(x),\quad \text{Cosinusoid} \]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:Basicfunc"></span>
+<img src="thesis_files/figure-html/Basicfunc-1.png" alt="\label{fig:Basicplot}Plot of Basic functions analysed in this project" width="672" />
+<p class="caption">
+Figure 3.1: Plot of Basic functions analysed in this project
+</p>
+</div>
+<p>In the figure <a href="#fig:Basicplot"><strong>??</strong></a> <strong>A</strong> is the <em>Linear</em> function, <strong>B</strong> is the <em>Quadratic</em> function, <strong>C</strong> is the <em>Cubic</em> function, <strong>D</strong> is <em>sinusoidal</em> function, <strong>E</strong> is <em>cosinusoidal</em> function and <strong>F</strong> is <em>Exponential</em> function. In addition to these basic functions the generated grid will be used to generate signals such as linchirp, Doppler, heavisine and the Mishmash. Definition of these signals is not simple; therefore, the plot of these signals has been provided in figure <a href="methodology.html#fig:Signals">3.3</a>.</p>
+<p>Back to our simulation, after generating the grid from <span class="math inline">\(X \sim \text{unif}(0,1)\)</span> the same procedure will be carried out for the data generated from a left skewed mixture of <span class="math inline">\(\text{beta}(2,1)\)</span> and <span class="math inline">\(\text{unif}(0,1)\)</span>. And for the right skewed mixture of <span class="math inline">\(\text{beta}(1,2)\)</span> and <span class="math inline">\(\text{unif}(0,1)\)</span>. These distributions have been generated using the regularized beta incomplete beta function from the <code>zipFR</code> package<span class="citation">(Evert &amp; Baroni, 2007)</span>. The density plot of these distribution has been provided below:</p>
+<div class="figure" style="text-align: center"><span id="fig:skewed"></span>
+<img src="thesis_files/figure-html/skewed-1.png" alt="\label{fig:skewed} Density plot of Left and Right skewed distrtibution used for generating grid" width="288" />
+<p class="caption">
+Figure 3.2:  Density plot of Left and Right skewed distrtibution used for generating grid
+</p>
+</div>
+<p>We have chosen these distribtions to make sure the generated grid point do start close to zero in a left-skewed case and do finish near one in the rightskewed case. In other words we wanted to have a grid which contain point from the entire <span class="math inline">\((0,1)\)</span> interval and this is important because the true value <span class="math inline">\(f\)</span> that we want to compare our estimates <span class="math inline">\(\hat f\)</span> which is constructed from the previously mentioned functions and the equally spaced grid which starts from zero and goes all the way through one. It is important to try both left and right skewed grids and the reason for this is the non symmetric shape of signals. For instance, Doppler signals are more dense in the left hand side close to zero, so if the sample contains a small number of point on the right hand side it is not hard to see why some estimators will struggle to came up with a good estimate.</p>
+<p>The signals in this project have been generate using the <code>make.signal2</code> in the <code>CNLTreg</code> <span class="citation">(Nunes &amp; Knight, 2018)</span> package in <strong>R</strong> which is a modified version of <code>make.signal</code> in <strong>S-plus</strong> and has the ability to generate signals on an specified grid. In addition, the plot in this project has been created using the <code>ggplot2</code> package <span class="citation">(Wickham, 2016)</span> and the <code>cowplot</code><span class="citation">(Wilke, 2019)</span> has used to put the <code>ggplot</code> generated plots into a panel.</p>
+<div class="figure" style="text-align: center"><span id="fig:Signals"></span>
+<img src="thesis_files/figure-html/Signals-1.png" alt="\label{fig:Signals}Plot of signals analysed in this project" width="672" />
+<p class="caption">
+Figure 3.3: Plot of signals analysed in this project
+</p>
+</div>
+<p>In figure <a href="methodology.html#fig:Signals">3.3</a> <strong>A</strong> is <code>Lincharp</code>, <strong>B</strong> is <code>Mishmash</code>, <strong>C</strong> is <code>Heavisine</code> and <strong>D</strong> is <code>Doppler</code>. Moreover, noise will be generated from a normal distribution with zero mean and a variance signal-to-noise ratio and will be added to the data. We will change the signal-to-noise ratio to observe the behavior of the estimators see <a href="methodology.html#eq:noise">(3.2)</a>. The estimated values from the estimators will be recorded.</p>
+<p>In this project four different estimators have been used to estimate the regression function. First, for <em>first generation wavelet</em> the functions from <code>wavethresh</code> package. First we use the function <code>wd</code> which performs the wavelet discrete transform and then use <code>threshold</code> function drop the coefficent below the threshold and then we use function <code>wr</code> to perform the reverse wavelet trtansform. For these functions the parameters where kept as default. Second, for the <em>second generation wavelet</em> the regression function from the <code>CNLTreg</code> package <span class="citation">(Nunes &amp; Knight, 2018)</span> has been used. This function gets takes the signal and grid value as argument returns the estimates. Parameter P in this
+function is the number of times that the algorithm gets applied to the data then it
+averages obtained estimates to obtain the final estimates. Moreover, selecting a P larger
+than 2 is computationally intensive and according to our tests, in our does not
+significantly improve the MSE, thus, we use P=2. Third, for <em>kernel smoothing regression</em> <code>np</code> package <span class="citation">(Hayfield &amp; Racine, 2008)</span> has been used, this package contains all kind of nonparametric methods. The regression type for the <code>np</code> is chosen to be local constant and the bandwidth selection has been done by Kullback-leibler cross-validation<span class="citation">(Hurvich, Simonoff, &amp; Tsai, 1998)</span>. Fourth, for <em>spline</em> the <code>mgcv</code> package was used <span class="citation">(Wood, 2003)</span>. This package has different functions built in to it including spline smoothing and generalized additive models. In this project to choose the optimal number of knots for penalized B-splines we have used the function gam.check which is provided in the package. The optimal K was 60 for all the signals. This is because the number of knots should be large enough to avoid underfitting. However, if the number of knots is more than enough it would avoid overfitting by penalizing term in equation <a href="non-parametric-regression.html#eq:RSS">(2.4)</a>.</p>
+</div>
+<div id="calculating-mse" class="section level2">
+<h2><span class="header-section-number">3.2</span> Calculating MSE</h2>
+<p>Our purpose is to estimate the estimate <span class="math inline">\(f\)</span> in equation below:
+<span class="math display" id="eq:model">\[\begin{equation}
+Y_{ij}=f(t_j)+\epsilon_{ij},\quad \epsilon\sim N(0,\sigma^2)
+\tag{3.1}
+\end{equation}\]</span>
+In <a href="methodology.html#eq:model">(3.1)</a> we know that <span class="math inline">\(f(t)\)</span> which is the true value of the function of interest. We obtain it by pluging an equally space grid with desirable amount of time points in the function. Furthermore, <span class="math inline">\(\sigma\)</span> is calibrated by the following equation with respect to signal-to-noise-ratio <span class="math inline">\(r\)</span>:
+<span class="math display" id="eq:noise">\[\begin{equation}
+\sigma^2=\frac{Var(f(t_i))}{r},\quad i=1,\dots,M
+\tag{3.2}
+\end{equation}\]</span>
+Where <span class="math inline">\(t_i\)</span> is a fixed grid of lenght <span class="math inline">\(M\)</span>, therefore <span class="math inline">\(f(t_i)\)</span> is a vector of lenght <span class="math inline">\(M\)</span> and we calculate the variance of it. In each iteration we calculate the estimate for each time point and record it. Therefore, after N iterations we have <span class="math inline">\(N\)</span> estimate of length <span class="math inline">\(M\)</span> for the signal of interest.
+We have to note that for the estimators that take the unequal-spaced grid as an argument we have to interpolate the estimated value to a equal-space grid. This will allow us to compare different estimators by calculating the MSE. Now we will discus how to calculate MSE. The below formula will be used to calculate the MSE:
+<span class="math display">\[
+\begin{aligned}
+MSE=\mathbb{E}(\hat f,f)(t)&amp;=\mathbb{E}(\hat f(t)-f(t))^2\\
+&amp;=\mathbb{E}[\hat f(t)-\mathbb{E}(\hat f(t))]+\mathbb{E}[\hat f(t))-f(t)]^2\\
+&amp;=\mathbb{E}[\hat f(t)-\mathbb{E}(\hat f(t))]^2+\mathbb{E}[Bias(\hat f(t),f(t))]^2\\
+&amp;=Var(\hat f(t))+Bias^2(\hat f(t),f(t))\\
+\end{aligned}
+\]</span>
+In the above formula <span class="math inline">\(f(t)\)</span> is the true value of the function or signal <span class="math inline">\(f\)</span> at point <span class="math inline">\(t\)</span> which we wish to estimate. To obtain true value first we generate a equally space grid which is effectively a sequence of numbers with constant increment. Then we plug it in to our function and now we have the true values for each time <span class="math inline">\(t\)</span>. On the other hand, <span class="math inline">\(\hat f(t)\)</span> is a the estimate that we get from our estimator. Using the same values we also use the following formula to calculate the Mean absolute error:
+<span class="math display">\[MAE=\mathbb{E}(|\hat f(t)- f(t)|)\]</span>.
+We will use MAE because it is considered to be an alternative for MSE<span class="citation">(Friedman, Hastie, &amp; Tibshirani, 2001)</span>.
+As mentioned above after recording the estimates with length of M since the grid is of length <span class="math inline">\(M\)</span> therefore the estimates would have the same length and associated interpolated values would have the same length too. Since we are repeated the procedure for N time we will end up with a dataset of interpolated estimated values which is a <span class="math inline">\(M\times N\)</span> matrix. Although we mentioned interpolation is not good practice, we do it only for purpose of calculating the <em>MSE</em> and <em>MAE</em>. To calculate the bias of the estimates at point <span class="math inline">\(t\)</span> we will take the average of the each row of the data set and subtract it from the true value of the regression function on that point. We calculate the variance of estimator at each point by simply calculating variance of each row of the data. Then we can calculate <em>MSE</em> by the this formula <span class="math inline">\(MSE=Bias^2+Var\)</span>. Then we can calculate <span class="math inline">\(MSIE\)</span> by calculating the mean of <span class="math inline">\(MSE\)</span> of all points.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="non-parametric-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
